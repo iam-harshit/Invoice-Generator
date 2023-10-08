@@ -46,20 +46,20 @@ const Invoice = () => {
   };
 
   return (
-    <div className="w-full md:w-8/12 lg:w-6/12 m-auto mt-10 pb-10 ">
-      <Row className="mx-4 mb-4 align-items-center">
-        <Col>
-          <h1 className="font-bold text-xl md:text-2xl">List of Invoices</h1>
+    <div className="w-full md:w-8/12 lg:w-6/12 m-auto mt-4 pb-10 ">
+      <Row className="mx-4 mb-4 align-items-center flex-column flex-md-row">
+        <Col className="mb-3">
+          <h1 className="font-bold text-2xl md:text-xl">List of Invoices</h1>
         </Col>
-        <Col className="d-flex justify-content-end">
+        <Col className="mb-3 d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-md-end">
           <Button
             variant="primary"
             onClick={clearInvoiceHandler}
-            className="mb-3 mr-6 me-4"
+            className="mb-3 mb-md-0 mr-md-6 me-md-4 text"
           >
             Clear all invoices
           </Button>
-          <Link to="/invoice-form" className="btn btn-primary mb-3 mr-2">
+          <Link to="/invoice-form" className="btn btn-primary text">
             + Create an invoice
           </Link>
         </Col>
@@ -76,16 +76,16 @@ const Invoice = () => {
       ) : (
         <ListGroup variant="flush">
           {invoiceItems.map((item) => (
-            <ListGroup.Item key={item?.invoiceNumber}>
-              <Row>
+            <ListGroup.Item key={item?.invoiceNumber} className="rounded my-2">
+              <Row className="align-items-center no-gutters">
                 <Col
-                  xs={2}
-                  className="d-flex align-items-center justify-content-center"
+                  xs="auto"
+                  className="d-flex justify-content-start"
                 ></Col>
-                <Col xs={8}>
+                <Col className="flex-grow-1">
                   <div
                     variant="link"
-                    className="invoice-text"
+                    className="invoice-text d-inline-block"
                     onClick={() => {
                       setSelectedInvoice(item);
                       setIsModalOpen(true);
@@ -93,11 +93,11 @@ const Invoice = () => {
                   >
                     Invoice #{item?.invoiceNumber}
                   </div>
-                  <span className="sub-text">
+                  <span className="sub-text d-block">
                     Total amount - ${item?.total}
                   </span>
                 </Col>
-                <Col xs={2} className="d-flex justify-content-end">
+                <Col xs="auto" className="d-flex align-items-center">
                   <OverlayTrigger
                     placement="bottom"
                     delay={{ show: 250, hide: 400 }}

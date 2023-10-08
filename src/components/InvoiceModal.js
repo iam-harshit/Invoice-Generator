@@ -46,7 +46,7 @@ class InvoiceModal extends React.Component {
                   {this.props.info.billFrom || "John Uberbacher"}
                 </h4>
                 <h6 className="fw-bold text-secondary mb-1">
-                  Invoice #: {this.props.info.invoiceNumber || ""}
+                  Invoice #{this.props.info.invoiceNumber || ""}
                 </h6>
               </div>
               <div className="text-end ms-4">
@@ -192,7 +192,7 @@ class InvoiceModal extends React.Component {
             </Row>
           </div>
         </Modal>
-        <hr className="mt-4 mb-3" />
+        {/* <hr className="mt-4 mb-3" /> */}
       </div>
     );
   }
